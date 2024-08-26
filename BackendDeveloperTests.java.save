@@ -1,0 +1,57 @@
+import org.junit.api.Test;
+import org.junit.jupiter.api.Assertions;
+
+
+/**
+ * The test class for the Backend
+ */
+public class BackendDeveloperTests {
+
+
+	//Test get range
+	@Test
+	public void firstTest() {
+		List<
+		List<String> songInRange = backend.getRange(50, 100);
+		
+	}
+
+	
+	@Test
+	public void secondTest() {
+		try {
+            backend.readData("testData.csv");
+        } catch (IOException e) {
+            fail("IOException thrown while reading data");
+        }
+	}
+
+	@Test
+	public void thirdTest() {
+		List<String> fiveMostLiveSongs = backend.fiveMostLive();
+        	// Add assertions to verify correct number and order of live songs
+        	assertEquals(5, fiveMostLiveSongs.size()); // Ensure exactly five songs are returned
+        	assertEquals("Song1", fiveMostLiveSongs.get(0));
+	}
+
+	@Test
+	public void fourthTest() throws IOException {
+		backend.readData("nonExistentFile.csv");
+	}
+
+	@Test
+	public void fifthTest() {
+		backend.fiveMostLive();
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
